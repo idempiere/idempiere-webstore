@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <modelVersion>4.0.0</modelVersion>
+        <artifactId>org.idempiere.webstore.main</artifactId>
+        <packaging>pom</packaging>
+        <parent>
+                <groupId>org.idempiere.webstore</groupId>
+                <artifactId>org.idempiere.webstore.parent</artifactId>
+                <version>7.1.0-SNAPSHOT</version>
+                <relativePath>org.idempiere.webstore.parent/pom.xml</relativePath>
+        </parent>
+        <modules>
+			<module>org.adempiere.webstore</module>
+			<module>org.adempiere.webstore.resource</module>
+			<module>org.adempiere.webstore.model</module>
+			<module>org.adempiere.webstore.servlet</module>
+			<module>org.adempiere.webstore-feature</module>
+			<module>org.idempiere.webstore.p2</module>
+		</modules>
+</project>
+

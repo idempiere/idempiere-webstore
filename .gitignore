@@ -1,0 +1,20 @@
+*/target/
+**/lib/*.jar
+
+/.metadata/
+/PostgreSQL/
+/Oracle/
+/log/
+/*.log
+/idempiere.properties
+/idempiereEnv.properties
+/hazelcast.xml
+
+server.product*.launch
+
+/RemoteSystemsTempFiles/
+External Plug-in Libraries
+.recommenders
+
+/runtime-server.product/
+/jettyhome/
