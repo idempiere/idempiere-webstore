@@ -19,7 +19,6 @@
 
    <requires>
       <import feature="org.adempiere.base.feature" version="0.0.0"/>
-      <import plugin="org.adempiere.report.jasper.webapp" version="0.0.0"/>
       <import plugin="org.mortbay.jasper.apache-jsp"/>
       <import plugin="org.apache.taglibs.taglibs-standard-spec"/>
    </requires>
