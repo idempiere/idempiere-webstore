@@ -135,7 +135,7 @@ public final class WebstoreUtil {
 		userMail.set_ValueNoCheck ("AD_Client_ID", Integer.valueOf(parent.getAD_Client_ID()));
 		userMail.set_ValueNoCheck ("AD_Org_ID", Integer.valueOf(parent.getAD_Org_ID()));
 		userMail.setAD_User_ID(AD_User_ID);
-		userMail.setW_MailMsg_ID(parent.getW_MailMsg_ID());
+		userMail.set_ValueOfColumn(MMailMsg.COLUMNNAME_W_MailMsg_ID, parent.getW_MailMsg_ID());
 		userMail.setSenderAndRecipient(mail);
 		//
 		if (mail.isSentOK())
