@@ -24,9 +24,6 @@ import java.util.Iterator;
 import java.util.Properties;
 import java.util.logging.Level;
 
-import org.compiere.model.MClient;
-import org.compiere.model.MRequest;
-import org.compiere.model.MWarehouse;
 import org.compiere.util.CCache;
 import org.compiere.util.CLogger;
 import org.compiere.util.DB;
@@ -341,7 +338,7 @@ public class MStore extends X_W_Store
 		EMail email = new EMail (client,
 				   from, to,
 				   subject, message);
-		//	Authorizetion
+		//	Authorization
 		if (client.isSmtpAuthorization())
 		{
 			if (getWStoreEMail() != null && getWStoreUser() != null && getWStoreUserPW() != null)

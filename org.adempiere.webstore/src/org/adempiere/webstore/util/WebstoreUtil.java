@@ -81,10 +81,12 @@ public final class WebstoreUtil {
 		String ftr = wStore.getEMailFooter();
 		if (ftr != null && ftr.length() > 0)
 			message.append(ftr);
-		
+
+		String retValue;
 		//	Create Mail
 		EMail email = wStore.createEMail(to.getEmail(), 
 			subject.toString(), message.toString());
+	  if (email != null) {
 		//	CC Order
 		if (msgType.equals(MMailMsg.MAILMSGTYPE_OrderAcknowledgement))
 		{
@@ -96,10 +98,13 @@ public final class WebstoreUtil {
 		}
 
 		//	Send
-		String retValue = email.send();
+		retValue = email.send();
 		//	Log
 		MUserMail um = newUserMail(mailMsg, to.getAD_User_ID(), email);
 		um.saveEx();
+	  } else {
+		retValue = "Error: cannot send email";
+	  }
 		//
 		return retValue;
 	}	//	sendEMail
