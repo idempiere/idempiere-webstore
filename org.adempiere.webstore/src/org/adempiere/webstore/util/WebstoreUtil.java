@@ -86,7 +86,7 @@ public final class WebstoreUtil {
 		//	Create Mail
 		EMail email = wStore.createEMail(to.getEmail(), 
 			subject.toString(), message.toString());
-	  if (email != null) {
+	  if (email != null && email.getFrom() != null) {
 		//	CC Order
 		if (msgType.equals(MMailMsg.MAILMSGTYPE_OrderAcknowledgement))
 		{
