@@ -192,7 +192,7 @@ public class WebLogin
 	            m_session.setMaxInactiveInterval(1);
 				m_session.invalidate ();
 			}
-			//	Forward to unsecure /
+			//	Forward to home of same scheme /
 			WebUtil.createForwardPage(m_response, "Logout", m_request.getScheme() + "://" + m_request.getServerName() + ":" + m_request.getServerPort() + "/", 2);
 		}
 		//	Send EMail				***	Send Password EMail Request

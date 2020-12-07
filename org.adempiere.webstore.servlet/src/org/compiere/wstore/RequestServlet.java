@@ -366,7 +366,7 @@ public class RequestServlet extends HttpServlet
 				"\n---------- " + req.getMailTag()});
 
 		//  --  Fini
-		String webStoreURL = "http://" + request.getServerName() + request.getContextPath() + "/";
+		String webStoreURL = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
 		if (forwardTo == null || forwardTo.length() == 0)
 			forwardTo = requestRef;
 		if (forwardTo != null && 
