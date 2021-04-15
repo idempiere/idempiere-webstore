@@ -131,7 +131,7 @@ public class ProductCategoryListTag extends TagSupport
 
 	/** Client Category Cache		*/
 	static CCache<Integer,option[]> s_categories
-		= new CCache<Integer,option[]>(I_M_Product_Category.Table_Name, "ProductCategory", 10, 60, true);
+		= new CCache<Integer,option[]>(I_M_Product_Category.Table_Name, "ProductCategory", 10, 60, false);
 
 }	//	ProductCategoryListTag
 

@@ -96,7 +96,7 @@ public class PriceList
 
 	/**	Price List Cache				*/
 	private static CCache<String,PriceList> s_cache
-		= new CCache<String,PriceList>(I_M_PriceList.Table_Name, "PriceList", 5, 60, true);	// 1h Cache	
+		= new CCache<String,PriceList>(I_M_PriceList.Table_Name, "PriceList", 5, 60, false);	// 1h Cache	
 	/** Maximum Lines to be displayed	*/
 	public static int				MAX_LINES = 50;
 
