@@ -8,9 +8,12 @@
         <parent>
                 <groupId>org.idempiere.webstore</groupId>
                 <artifactId>org.idempiere.webstore.parent</artifactId>
-                <version>7.1.0-SNAPSHOT</version>
+                <version>${revision}</version>
                 <relativePath>org.idempiere.webstore.parent/pom.xml</relativePath>
         </parent>
+        <properties>
+			<idempiere.core.path>../idempiere</idempiere.core.path>
+        </properties>
         <modules>
 			<module>org.adempiere.webstore</module>
 			<module>org.adempiere.webstore.resource</module>
@@ -18,6 +21,7 @@
 			<module>org.adempiere.webstore.servlet</module>
 			<module>org.adempiere.webstore-feature</module>
 			<module>org.idempiere.webstore.p2</module>
+			<module>${idempiere.core.path}/${idempiere.target}</module>
 		</modules>
 </project>
 

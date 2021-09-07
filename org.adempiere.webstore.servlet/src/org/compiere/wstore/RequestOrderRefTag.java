@@ -22,13 +22,14 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Level;
 
+import javax.el.ValueExpression;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
 import org.apache.ecs.xhtml.option;
 import org.apache.ecs.xhtml.select;
-import org.apache.taglibs.standard.tag.el.core.ExpressionUtil;
+import org.apache.taglibs.standard.util.ExpressionUtil;
 import org.compiere.util.CLogger;
 import org.compiere.util.DB;
 import org.compiere.util.Util;
@@ -74,8 +75,8 @@ public class RequestOrderRefTag extends TagSupport
 		int C_BPartner_ID = 0;
 		try
 		{
-			String info = (String)ExpressionUtil.evalNotNull ("requestOrder", "bpartnerID",
-				m_bpartnerID_el, String.class, this, pageContext);
+			ValueExpression expression = ExpressionUtil.createValueExpression(pageContext, m_bpartnerID_el, String.class);
+			String info = (String)ExpressionUtil.evaluate (expression, pageContext);
 			if (info != null && info.length () != 0)
 				C_BPartner_ID = Integer.parseInt (info);
 		}

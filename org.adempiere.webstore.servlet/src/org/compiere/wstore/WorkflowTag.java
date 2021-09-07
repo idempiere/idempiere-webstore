@@ -18,6 +18,7 @@ package org.compiere.wstore;
 
 import java.util.Properties;
 
+import javax.el.ValueExpression;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
@@ -27,7 +28,7 @@ import org.apache.ecs.xhtml.b;
 import org.apache.ecs.xhtml.br;
 import org.apache.ecs.xhtml.option;
 import org.apache.ecs.xhtml.select;
-import org.apache.taglibs.standard.tag.el.core.ExpressionUtil;
+import org.apache.taglibs.standard.util.ExpressionUtil;
 import org.compiere.util.CLogger;
 import org.compiere.util.HtmlCode;
 import org.compiere.util.Msg;
@@ -84,8 +85,8 @@ public class WorkflowTag extends TagSupport
 		String info = null;
 		try
 		{
-			info = (String)ExpressionUtil.evalNotNull ("workflow", "activityID",
-				m_activityID_el, String.class, this, pageContext);
+			ValueExpression expression = ExpressionUtil.createValueExpression(pageContext, m_activityID_el, String.class);
+			info = (String)ExpressionUtil.evaluate (expression, pageContext);
 			if (info != null && info.length () != 0)
 				AD_WF_Activity_ID = Integer.parseInt (info);
 		}

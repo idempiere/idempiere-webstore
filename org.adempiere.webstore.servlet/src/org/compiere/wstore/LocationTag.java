@@ -19,6 +19,7 @@ package org.compiere.wstore;
 import java.util.Properties;
 import java.util.logging.Level;
 
+import javax.el.ValueExpression;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
@@ -30,7 +31,7 @@ import org.apache.ecs.xhtml.label;
 import org.apache.ecs.xhtml.option;
 import org.apache.ecs.xhtml.select;
 import org.apache.ecs.xhtml.span;
-import org.apache.taglibs.standard.tag.el.core.ExpressionUtil;
+import org.apache.taglibs.standard.util.ExpressionUtil;
 import org.compiere.model.MCountry;
 import org.compiere.model.MLocation;
 import org.compiere.model.MRegion;
@@ -120,8 +121,8 @@ public class LocationTag extends TagSupport
 		int C_Country_ID = 0;
 		try
 		{
-			String info = (String)ExpressionUtil.evalNotNull ("location", "countryID",
-				m_countryID_el, String.class, this, pageContext);
+			ValueExpression expression = ExpressionUtil.createValueExpression(pageContext, m_countryID_el, String.class);
+			String info = (String)ExpressionUtil.evaluate (expression, pageContext);
 			if (info != null && info.length () != 0)
 				C_Country_ID = Integer.parseInt (info);
 		}
@@ -140,8 +141,8 @@ public class LocationTag extends TagSupport
 		int C_Region_ID = 0;
 		try
 		{
-			String info = (String)ExpressionUtil.evalNotNull ("location", "regionID",
-				m_regionID_el, String.class, this, pageContext);
+			ValueExpression expression = ExpressionUtil.createValueExpression(pageContext, m_regionID_el, String.class);
+			String info = (String)ExpressionUtil.evaluate (expression, pageContext);
 			if (info != null && info.length () != 0)
 				C_Region_ID = Integer.parseInt (info);
 		}
@@ -177,8 +178,8 @@ public class LocationTag extends TagSupport
 		
 		//	City	***********************************************************
 		name = "City";
-		String city = (String)ExpressionUtil.evalNotNull ("location", "city",
-			m_city_el, String.class, this, pageContext);
+		ValueExpression expression = ExpressionUtil.createValueExpression(pageContext, m_city_el, String.class);
+		String city = (String)ExpressionUtil.evaluate (expression, pageContext);
 
 		lbl = new label();
 		lbl.setFor(name);
@@ -195,8 +196,8 @@ public class LocationTag extends TagSupport
 		
 		//	Postal	***********************************************************
 		name = "Postal";
-		String postal = (String)ExpressionUtil.evalNotNull ("location", "postal",
-			m_postal_el, String.class, this, pageContext);
+		expression = ExpressionUtil.createValueExpression(pageContext, m_postal_el, String.class);
+		String postal = (String)ExpressionUtil.evaluate (expression, pageContext);
 		
 		lbl = new label();
 		lbl.setFor(name);
@@ -219,8 +220,8 @@ public class LocationTag extends TagSupport
 		lbl.setFor(name);
 		lbl.setID("LBL_"+name);
 
-		String regionName = (String)ExpressionUtil.evalNotNull ("location", "regionName",
-			m_regionName_el, String.class, this, pageContext);
+		expression = ExpressionUtil.createValueExpression(pageContext, m_regionName_el, String.class);
+		String regionName = (String)ExpressionUtil.evaluate (expression, pageContext);
 		field = new input (input.TYPE_TEXT, "RegionName", regionName);
 		field.setSize(40).setMaxlength(60).setID("ID_RegionName");
 		if (m_country != null && m_country.isHasRegion())

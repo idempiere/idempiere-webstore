@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Webstore Model
 Bundle-SymbolicName: org.adempiere.webstore.model
-Bundle-Version: 7.1.0.qualifier
+Bundle-Version: 9.0.0.qualifier
 Bundle-Vendor: iDempiere Community
 Automatic-Module-Name: org.adempiere.webstore.model
 Bundle-RequiredExecutionEnvironment: JavaSE-11

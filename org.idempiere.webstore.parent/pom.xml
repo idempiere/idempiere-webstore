@@ -5,12 +5,13 @@
 
 	<groupId>org.idempiere.webstore</groupId>
 	<artifactId>org.idempiere.webstore.parent</artifactId>
-	<version>7.1.0-SNAPSHOT</version>
+	<version>${revision}</version>
 	<packaging>pom</packaging>
 	<name>Maven parent project for iDempiere Webstore</name>
 
 	<properties>
-		<tycho.version>1.5.0</tycho.version>
+		<revision>9.0.0-SNAPSHOT</revision>
+		<tycho.version>2.4.0</tycho.version>
 		<tycho.extras.version>${tycho.version}</tycho.extras.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.dependency.version>3.1.1</maven.dependency.version>
@@ -18,6 +19,7 @@
 		<lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
 		<maven-clean-plugin.version>2.5</maven-clean-plugin.version>
 		<url.file.srv>https://raw.githubusercontent.com/idempiere/binary.file/master</url.file.srv>
+		<idempiere.target>org.idempiere.p2.targetplatform</idempiere.target>
 		<!-- default value of properties, use when run without profile -->
 		<idempiere.core.repository.url>file:///${basedir}/../../idempiere/org.idempiere.p2/target/repository</idempiere.core.repository.url>
 	</properties>
@@ -77,6 +79,25 @@
 										</versionRange>
 										<goals>
 											<goal>copy</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.eclipse.tycho
+										</groupId>
+										<artifactId>
+											target-platform-configuration
+										</artifactId>
+										<versionRange>
+											[2.4.0,)
+										</versionRange>
+										<goals>
+											<goal>target-platform</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>
@@ -212,12 +233,29 @@
 							<dependency-resolution>
 							  <extraRequirements>
 								<requirement>
-								  <type>eclipse-plugin</type>
-								  <id>org.adempiere.webstore.model</id>
-								  <versionRange>[7.1.0,8.0.0)</versionRange>
+								    <type>eclipse-plugin</type>
+								    <id>org.adempiere.webstore.model</id>
+								    <versionRange>[9.0.0,10.0.0)</versionRange>
 								</requirement>
+								<requirement>
+							            <type>eclipse-plugin</type>
+							            <id>org.eclipse.core.runtime</id>
+							            <versionRange>0.0.0</versionRange>
+						               </requirement>
+							       <requirement>
+								     <type>eclipse-plugin</type>
+								     <id>org.eclipse.equinox.common</id>
+								     <versionRange>0.0.0</versionRange>
+							       </requirement>
 							  </extraRequirements>
 							</dependency-resolution>
+							<target>
+							    <artifact>
+								    <groupId>org.idempiere</groupId>
+								    <artifactId>${idempiere.target}</artifactId>
+								    <version>${project.version}</version>
+							    </artifact>
+				            		</target>
 						</configuration>
 					</plugin>
 				</plugins>

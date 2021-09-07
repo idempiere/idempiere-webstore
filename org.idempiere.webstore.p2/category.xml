@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.adempiere.webstore.feature_7.1.0.qualifier.jar" id="org.adempiere.webstore.feature" version="7.1.0.qualifier">
+   <feature url="features/org.adempiere.webstore.feature_9.0.0.qualifier.jar" id="org.adempiere.webstore.feature" version="9.0.0.qualifier">
       <category name="org.idempiere.webstore"/>
    </feature>
    <category-def name="org.idempiere.webstore" label="iDempiere Webstore"/>
