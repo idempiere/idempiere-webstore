@@ -83,7 +83,7 @@ public class WebOrder
 		//
 		m_order.setC_DocTypeTarget_ID(MOrder.DocSubTypeSO_Prepay);
 		m_order.setPaymentRule(MOrder.PAYMENTRULE_CreditCard);
-		m_order.setDeliveryRule(MOrder.DELIVERYRULE_AfterReceipt);
+		m_order.setDeliveryRule(MOrder.DELIVERYRULE_AfterPayment);
 		m_order.setInvoiceRule(MOrder.INVOICERULE_Immediate);
 		m_order.setIsSelfService(true);
 		if (wb.getM_PriceList_ID() > 0)
