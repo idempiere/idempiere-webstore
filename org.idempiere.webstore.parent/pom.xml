@@ -210,7 +210,7 @@
 	            </repository>
 			</repositories>
 			<build>
-				<plugins>
+				<plugins>					
 					<plugin>
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>target-platform-configuration</artifactId>
@@ -233,20 +233,15 @@
 							<dependency-resolution>
 							  <extraRequirements>
 								<requirement>
-								    <type>eclipse-plugin</type>
-								    <id>org.adempiere.webstore.model</id>
-								    <versionRange>[9.0.0,10.0.0)</versionRange>
-								</requirement>
-								<requirement>
-							            <type>eclipse-plugin</type>
-							            <id>org.eclipse.core.runtime</id>
-							            <versionRange>0.0.0</versionRange>
-						               </requirement>
-							       <requirement>
+							         <type>eclipse-plugin</type>
+							         <id>org.eclipse.core.runtime</id>
+							         <versionRange>0.0.0</versionRange>
+						        </requirement>
+							    <requirement>
 								     <type>eclipse-plugin</type>
 								     <id>org.eclipse.equinox.common</id>
 								     <versionRange>0.0.0</versionRange>
-							       </requirement>
+							    </requirement>
 							  </extraRequirements>
 							</dependency-resolution>
 							<target>
@@ -255,7 +250,7 @@
 								    <artifactId>${idempiere.target}</artifactId>
 								    <version>${project.version}</version>
 							    </artifact>
-				            		</target>
+				            </target>
 						</configuration>
 					</plugin>
 				</plugins>

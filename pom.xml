@@ -16,12 +16,7 @@
         </properties>
         <modules>
 			<module>org.adempiere.webstore</module>
-			<module>org.adempiere.webstore.resource</module>
-			<module>org.adempiere.webstore.model</module>
-			<module>org.adempiere.webstore.servlet</module>
-			<module>org.adempiere.webstore-feature</module>
-			<module>org.idempiere.webstore.p2</module>
 			<module>${idempiere.core.path}/${idempiere.target}</module>
-		</modules>
+	</modules>
 </project>
 

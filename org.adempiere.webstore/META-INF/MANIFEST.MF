@@ -8,8 +8,10 @@ Require-Bundle: org.adempiere.base;bundle-version="0.0.0",
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version>=11))"
 Web-ContextPath: wstore
-Import-Package: javax.mail.internet;version="1.6.0",
+Import-Package: javax.el;version="3.0.0",
+ javax.mail.internet;version="1.6.0",
  javax.servlet;version="3.0.0",
+ javax.servlet.annotation;version="4.0.0",
  javax.servlet.http;version="3.0.0",
  javax.servlet.jsp;version="2.2.0",
  javax.servlet.jsp.el;version="2.2.0",
@@ -40,6 +42,7 @@ Import-Package: javax.mail.internet;version="1.6.0",
  org.apache.taglibs.standard.tag.rt.xml;version="1.2.0",
  org.apache.taglibs.standard.tei;version="1.2.0",
  org.apache.taglibs.standard.tlv;version="1.2.0",
+ org.apache.taglibs.standard.util;version="1.2.0",
  org.apache.xerces.dom;version="2.9.0",
  org.apache.xerces.dom.events;version="2.9.0",
  org.apache.xerces.dom3.as;version="2.9.0",
@@ -81,8 +84,9 @@ Bundle-Activator: org.adempiere.webstore.Activator
 Bundle-ClassPath: .
 Automatic-Module-Name: org.adempiere.webstore
 Bundle-Vendor: iDempiere Community
-Service-Component: OSGI-INF/org.adempiere.webstore.factory.WebstoreModelFactory.xml
 Export-Package: org.adempiere.webstore,
- org.adempiere.webstore.factory,
- org.adempiere.webstore.util
+ org.adempiere.webstore.util,
+ org.compiere.model,
+ org.compiere.wstore
 Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/org.adempiere.webstore.factory.WebstoreModelFactory.xml
