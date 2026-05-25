@@ -38,7 +38,6 @@ import org.compiere.model.MRequest;
 import org.compiere.model.MUser;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
-import org.compiere.util.FileUpload;
 import org.compiere.util.Msg;
 import org.compiere.util.WebEnv;
 import org.compiere.util.WebUser;

@@ -8,7 +8,7 @@
         <parent>
                 <groupId>org.idempiere.webstore</groupId>
                 <artifactId>org.idempiere.webstore.parent</artifactId>
-                <version>${revision}</version>
+                <version>14.0.0-SNAPSHOT</version>
                 <relativePath>org.idempiere.webstore.parent/pom.xml</relativePath>
         </parent>
         <properties>
@@ -16,7 +16,7 @@
         </properties>
         <modules>
 			<module>org.adempiere.webstore</module>
-			<module>${idempiere.core.path}/${idempiere.target}</module>
+			<module>../iDempiere/org.idempiere.p2.targetplatform</module>
 	</modules>
 </project>
 

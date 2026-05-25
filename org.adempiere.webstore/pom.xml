@@ -4,26 +4,34 @@
 	<parent>
 		<groupId>org.idempiere.webstore</groupId>
 		<artifactId>org.idempiere.webstore.parent</artifactId>
-		<version>${revision}</version>
+		<version>14.0.0-SNAPSHOT</version>
 		<relativePath>../org.idempiere.webstore.parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>org.adempiere.webstore</artifactId>
 	<packaging>eclipse-plugin</packaging>
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-packaging-plugin</artifactId>
-				<version>${tycho.version}</version>
+		    <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
-						<phase>package</phase>
-						<id>package-plugin</id>
+						<phase>validate</phase>
 						<goals>
-							<goal>package-plugin</goal>
+							<goal>copy</goal>
 						</goals>
 						<configuration>
-							<finalName>${project.artifactId}_${unqualifiedVersion}.${buildQualifier}</finalName>
+							<artifactItems>
+								<artifactItem>
+								   <groupId>org.apache.taglibs</groupId>
+								   <artifactId>taglibs-standard-impl</artifactId>
+								   <version>1.2.5</version>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>lib</outputDirectory>
+							<stripVersion>true</stripVersion>
+							<overWriteReleases>true</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
 						</configuration>
 					</execution>
 				</executions>

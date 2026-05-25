@@ -5,33 +5,24 @@
 
 	<groupId>org.idempiere.webstore</groupId>
 	<artifactId>org.idempiere.webstore.parent</artifactId>
-	<version>${revision}</version>
+	<version>14.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Maven parent project for iDempiere Webstore</name>
 
 	<properties>
-		<revision>9.0.0-SNAPSHOT</revision>
-		<tycho.version>2.4.0</tycho.version>
+		<tycho.version>4.0.8</tycho.version>
 		<tycho.extras.version>${tycho.version}</tycho.extras.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.dependency.version>3.1.1</maven.dependency.version>
 		<download.maven.version>1.4.1</download.maven.version>
 		<lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
-		<maven-clean-plugin.version>2.5</maven-clean-plugin.version>
-		<url.file.srv>https://raw.githubusercontent.com/idempiere/binary.file/master</url.file.srv>
-		<idempiere.target>org.idempiere.p2.targetplatform</idempiere.target>
 		<!-- default value of properties, use when run without profile -->
-		<idempiere.core.repository.url>file:///${basedir}/../../idempiere/org.idempiere.p2/target/repository</idempiere.core.repository.url>
+		<idempiere.core.repository.url>file:///${basedir}/../../iDempiere/org.idempiere.p2/target/repository</idempiere.core.repository.url>
 	</properties>
 
 	<build>
 		<pluginManagement>
 			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-clean-plugin</artifactId>
-					<version>${maven-clean-plugin.version}</version>
-				</plugin>
 				<plugin>
 					<!-- https://www.eclipse.org/m2e/documentation/m2e-execution-not-covered.html -->
 					<groupId>org.eclipse.m2e</groupId>
@@ -51,57 +42,6 @@
 									</pluginExecutionFilter>
 									<action>
 										<ignore />
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-clean-plugin</artifactId>
-										<versionRange>[2.5,)</versionRange>
-										<goals>
-											<goal>clean</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore/>
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.apache.maven.plugins
-										</groupId>
-										<artifactId>
-											maven-dependency-plugin
-										</artifactId>
-										<versionRange>
-											[3.1.1,)
-										</versionRange>
-										<goals>
-											<goal>copy</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.eclipse.tycho
-										</groupId>
-										<artifactId>
-											target-platform-configuration
-										</artifactId>
-										<versionRange>
-											[2.4.0,)
-										</versionRange>
-										<goals>
-											<goal>target-platform</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
@@ -190,7 +130,7 @@
 	</build>
 	<profiles>
 	    <profile>
-			<id>build.idempiere.webstore</id>
+			<id>build.idempiere.extensions</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
@@ -205,12 +145,12 @@
 				    <url>http://central.maven.org/maven2</url>
 			    </repository>
 			    <repository>
-		            <id>jenkins</id>
-		            <url>http://repo.jenkins-ci.org/releases</url>
-	            </repository>
+				    <id>zkoss</id>
+				    <url>http://mavensync.zkoss.org/maven2</url>
+			    </repository>
 			</repositories>
 			<build>
-				<plugins>					
+				<plugins>
 					<plugin>
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>target-platform-configuration</artifactId>
@@ -228,29 +168,22 @@
 									<arch>x86_64</arch>
 								</environment>
 							</environments>
-							<executionEnvironmentDefault>JavaSE-11</executionEnvironmentDefault>
-							<executionEnvironment>JavaSE-11</executionEnvironment>
 							<dependency-resolution>
-							  <extraRequirements>
-								<requirement>
-							         <type>eclipse-plugin</type>
-							         <id>org.eclipse.core.runtime</id>
-							         <versionRange>0.0.0</versionRange>
-						        </requirement>
-							    <requirement>
-								     <type>eclipse-plugin</type>
-								     <id>org.eclipse.equinox.common</id>
-								     <versionRange>0.0.0</versionRange>
-							    </requirement>
-							  </extraRequirements>
+								<extraRequirements>
+									<requirement>
+										<type>eclipse-plugin</type>
+										<id>org.eclipse.core.runtime</id>
+										<versionRange>0.0.0</versionRange>
+									</requirement>
+									<requirement>
+										<type>eclipse-plugin</type>
+										<id>org.eclipse.equinox.common</id>
+										<versionRange>0.0.0</versionRange>
+									</requirement>
+								</extraRequirements>
 							</dependency-resolution>
-							<target>
-							    <artifact>
-								    <groupId>org.idempiere</groupId>
-								    <artifactId>${idempiere.target}</artifactId>
-								    <version>${project.version}</version>
-							    </artifact>
-				            </target>
+							<executionEnvironmentDefault>JavaSE-17</executionEnvironmentDefault>
+							<executionEnvironment>JavaSE-17</executionEnvironment>
 						</configuration>
 					</plugin>
 				</plugins>
